@@ -1,0 +1,79 @@
+/* ===== Variables ===== */
+:root{
+  --rojo:#e41e2b; --rojo-oscuro:#7a0c14; --crema:#fff6ee; --tinta:#2a0d0d;
+  --titulos:"Poppins",Arial; --texto:"Nunito",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--texto);font-size:1.05rem;line-height:1.7;color:var(--tinta);background:var(--crema)}
+ul{list-style:none}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+
+.logo,.hero h1{font-family:var(--titulos);font-weight:400}
+
+/* ===== Menú (Flexbox) ===== */
+.menu{display:flex;justify-content:center;flex-wrap:wrap;gap:1.4rem}
+.menu a{font-weight:800;padding:.3rem .2rem;border-bottom:3px solid transparent;transition:color .2s,border-color .2s}
+.menu a:hover{color:var(--rojo);border-color:var(--rojo)}
+.menu a.activo{border-color:var(--rojo)}
+
+/* ===== Redes ===== */
+.redes{display:flex;justify-content:center;gap:.8rem}
+.redes a{display:flex;align-items:center;justify-content:center;width:2.4rem;height:2.4rem;border-radius:50%;background:var(--rojo);color:#fff;transition:transform .2s,background .2s}
+.redes a:hover{background:var(--tinta);transform:translateY(-3px)}
+
+/* ===== Portada ===== */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;
+  background:linear-gradient(rgba(60,0,5,.25),rgba(60,0,5,.45)),url("../img/portada.jpg") center/cover no-repeat;color:#fff}
+.hero-contenido{max-width:760px;padding:2rem;display:flex;flex-direction:column;align-items:center;gap:1.4rem}
+.hero h1{font-size:clamp(3.2rem,11vw,7rem);line-height:1.1;text-shadow:3px 3px 0 var(--rojo-oscuro)}
+.slogan{font-size:1.25rem;font-weight:700}
+.hero .menu a:hover{color:#fff;border-color:#fff}
+.hero .menu a.activo{border-color:#fff}
+.hero .redes a{background:#fff;color:var(--rojo)}
+.hero .redes a:hover{background:var(--tinta);color:#fff}
+
+/* ===== Páginas internas: cabecera fija ===== */
+.interna{padding-top:150px}
+.cabecera{position:fixed;top:0;left:0;width:100%;z-index:10;background:var(--crema);
+  display:flex;flex-direction:column;align-items:center;gap:.6rem;padding:.8rem 1rem .6rem;border-bottom:3px solid var(--rojo)}
+.cabecera .logo{font-size:2.4rem;line-height:1.2;color:var(--rojo)}
+
+.contenido{width:min(90%,820px);margin:2rem auto}
+.contenido p{margin:1rem 0;text-align:justify}
+.centrado{text-align:center}
+h2{font-family:var(--titulos);font-weight:400;color:var(--rojo)}
+
+/* ===== Blog ===== */
+.banner{width:100%;height:320px;object-fit:cover;border-radius:8px}
+.titulo-blog{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;gap:1rem}
+.titulo-blog h2{flex:1;text-align:center;font-size:1.7rem}
+.autor{text-align:center;font-size:.8rem;line-height:1.2}
+.autor img{width:64px;height:64px;border-radius:50%;object-fit:cover;margin:0 auto .3rem;border:3px solid var(--rojo)}
+.bloque{display:flex;align-items:center;gap:1.5rem;margin:1.5rem 0}
+.bloque img{width:200px;height:160px;object-fit:cover;border-radius:6px;flex-shrink:0}
+.bloque p{margin:0}
+
+/* ===== Galería (Flexbox + hover) ===== */
+.galeria{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem 1.5rem}
+.galeria figure{flex:0 1 calc(33.333% - 1rem);min-width:220px;text-align:center}
+.galeria img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:6px;box-shadow:4px 4px 10px rgba(0,0,0,.35);
+  filter:grayscale(100%);transition:filter .35s,transform .35s}
+.galeria img:hover{filter:grayscale(0);transform:scale(1.06) rotate(-1deg)}
+.galeria figcaption{font-style:italic;color:var(--rojo);margin-top:.5rem}
+
+/* ===== Videos responsivos ===== */
+.video{position:relative;width:100%;aspect-ratio:16/9;margin:1.5rem auto 0;box-shadow:4px 4px 12px rgba(0,0,0,.4)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.pie-video{font-size:.9rem;text-align:center !important}
+
+/* ===== Pie ===== */
+.pie{display:flex;flex-direction:column;align-items:center;gap:.8rem;padding:2rem 1rem;text-align:center}
+.pie small{max-width:560px;opacity:.75}
+
+@media (max-width:600px){
+  .interna{padding-top:175px}
+  .bloque{flex-direction:column}
+  .banner{height:200px}
+  .galeria figure{flex-basis:100%}
+}
